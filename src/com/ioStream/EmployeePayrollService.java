@@ -30,6 +30,7 @@ public class EmployeePayrollService {
 		utiles.createFile("Data/data1.txt");
 		utiles.writeTOFile("Data/data1.txt");
 		utiles.readFromFile("Data/data1.txt");
+		utiles.listOfFilesandFolder("Data");
 		utiles.deleteFile("Data/data1.txt");
 		utiles.deleteFolder("Data");	
 	}

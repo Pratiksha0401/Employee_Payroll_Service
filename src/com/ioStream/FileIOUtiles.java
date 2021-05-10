@@ -20,6 +20,19 @@ public class FileIOUtiles {
 		System.out.println("File does not Exist");
 	}
 	
+	//List of files and Folders
+	public void listOfFilesandFolder(String path) {
+		File dir = new File(path);
+		File [] files=dir.listFiles();
+		if (files.length == 0) {
+		    System.out.println("The directory is empty");
+		} else {
+		    for (File aFile : files) {
+		        System.out.println(aFile.getName() + " - " + aFile.length());
+		    }
+		}
+	} 
+	
 	//create folder
 	public void createFolder(String path) {
 		File myFolder = new File(path);
@@ -35,7 +48,7 @@ public class FileIOUtiles {
 	public void deleteFolder(String dir) throws IOException {
 		File myFolder = new File(dir);
 		String pathDir=myFolder.getAbsolutePath();
-		System.out.println(pathDir);
+		
 		Path path= Paths.get(pathDir);
 		try {
             Files.delete(path);
