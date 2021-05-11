@@ -37,24 +37,24 @@ public class FileIOUtiles {
 	public void createFolder(String path) {
 		File myFolder = new File(path);
 		if(!myFolder.exists()) {
-			myFolder.mkdirs();
+			myFolder.mkdir();
 			System.out.println(path+" Folder created !");
 		}
 		else
 			System.out.println(path+ " Folder already exist !");
 	}
 	
-	//delete folder
-	public void deleteFolder(String dir) throws IOException {
+	//delete file and folder
+	public void delete(String dir) throws IOException {
 		File myFolder = new File(dir);
 		String pathDir=myFolder.getAbsolutePath();
 		
 		Path path= Paths.get(pathDir);
 		try {
             Files.delete(path);
-            System.out.println(path+" Folder Deleted successfully !");
+            System.out.println(path+"  Deleted successfully !");
         } catch (IOException e) {
-            System.out.println(path + " Folder does not exits !");
+            System.out.println(path + " does not exits !");
             e.printStackTrace();
         }
 	}
@@ -68,17 +68,6 @@ public class FileIOUtiles {
         } catch (IOException e) {
             System.out.println(path + " Unable to create this file");
             e.printStackTrace();
-        }
-	}
-	
-	//delete file
-	public void deleteFile(String path) {
-		File myFile = new File(path);
-		if(myFile.delete()){
-            System.out.println( myFile.getName()+" File Deleted ! ");
-        }
-        else{
-            System.out.println("Some problem occurred while deleting the file or file may not exist");
         }
 	}
 	
