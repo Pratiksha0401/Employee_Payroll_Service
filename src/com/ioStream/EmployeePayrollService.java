@@ -33,7 +33,7 @@ public class EmployeePayrollService {
 		
 		service.readData(new Scanner(System.in));
 		service.writeData(IOService.FILE_ID);
-		
+		service.printData();
 	}
 	
 	private void writeData(IOService service) throws IOException {
@@ -68,8 +68,16 @@ public class EmployeePayrollService {
 		System.out.println("Enter salary: ");
 		double sal = scanner.nextDouble();
 		
-		data.add(new EmployeePayrollData(id, name, sal));
-		
+		data.add(new EmployeePayrollData(id, name, sal));		
+	}
+	
+	public void printData() {
+		try {
+			Files.lines(new File("D:\\Pratiksha\\Java_programs\\Day-27\\employeeData.txt").toPath())
+				.forEach(System.out::println);
+		}catch (IOException e) {
+			e.printStackTrace();
+		}	
 	}
 
 }
